@@ -4,8 +4,8 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "start": "node src/server.js",
-    "start:watch": "nodemon --ignore tests/* src/server.js",
+    "start": "node src/main.js",
+    "start:watch": "nodemon --ignore tests/* src/main.js",
     "test": "node --test",
     "test:watch": "nodemon --ext js --exec 'node --test'",
     "lint": "eslint ./**/*.js",
@@ -22,6 +22,9 @@
     "url": "https://github.com/mscamargo/survey-api/issues"
   },
   "homepage": "https://github.com/mscamargo/survey-api#readme",
+  "imports": {
+    "#src/*": "./src/*"
+  },
   "eslintConfig": {
     "extends": [
       "standard"
