@@ -2,12 +2,12 @@
   "name": "survey-api",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "scripts": {
     "start": "node src/main.js",
     "start:watch": "nodemon --ignore tests/* src/main.js",
-    "test": "node --test",
-    "test:watch": "nodemon --ext js --exec 'node --test'",
+    "test": "mocha test/**/*.test.js",
+    "test:watch": "nodemon --ext js --exec 'clear && npm run test'",
+    "test:cov": "nyc mocha test/**/*.test.js",
     "lint": "eslint ./**/*.js",
     "lint:fix": "npm run lint -- --fix"
   },
@@ -29,12 +29,15 @@
     "extends": [
       "standard"
     ],
-    "globals": {
-      "Request": true
+    "env": {
+      "mocha": true
     }
   },
   "devDependencies": {
     "eslint-config-standard": "^17.0.0",
-    "nodemon": "^2.0.16"
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.16",
+    "nyc": "^15.1.0",
+    "supertest": "^6.2.3"
   }
 }

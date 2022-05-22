@@ -1,4 +1,4 @@
-import http from 'node:http'
+const http = require('node:http')
 
 const server = http.createServer()
 
@@ -36,7 +36,7 @@ server.on('request', (request, response) => {
           errors: [
             {
               location: 'body',
-              message: 'should not be blank',
+              message: 'must not be blank',
               param: 'name'
             }
           ]
@@ -46,4 +46,4 @@ server.on('request', (request, response) => {
   })
 })
 
-export { server }
+module.exports = server
